@@ -9,7 +9,7 @@ license=('GPL2')
 depends=('dkms')
 makedepends=('git' 'linux-headers')
 provides=("dxgkrnl")
-source=('0001-Add-a-gpu-pv-support.patch' '0002-Fix-eventfd_signal.patch')
+source=('0001-Add-a-gpu-pv-support.patch')
 sha256sums=('9994e8b021341f7805f5e51a38cd065abaff8f106bceefc3138bd859be48865b' '44c24dbbea7833689cae5395e6f991124826e547172c8a41c177018687063252' )
 
 prepare() {
@@ -18,12 +18,12 @@ prepare() {
     # 详见 https://github.com/Nevuly/WSL2-Linux-Kernel-Rolling-LTS/tree/wsl-6.12-lts/drivers/hv/dxgkrnl
     rm -rf dxgkrnl-*
     rm -rf WSL2-Linux-Kernel-sparse
-    git clone --branch=linux-msft-wsl-6.6.y --no-checkout --depth=1 --filter=blob:none https://github.com/microsoft/WSL2-Linux-Kernel.git WSL2-Linux-Kernel-sparse
+    git clone --branch=wsl-6.14-rolling --no-checkout --depth=1 --filter=blob:none https://github.com/Nevuly/WSL2-Linux-Kernel-Rolling.git WSL2-Linux-Kernel-sparse
     cd WSL2-Linux-Kernel-sparse
     git sparse-checkout set --no-cone /drivers/hv/dxgkrnl /include/uapi/misc/d3dkmthk.h
-    git checkout -f linux-msft-wsl-6.6.y
+    git checkout wsl-6.14-rolling
     git apply -v $srcdir/0001-Add-a-gpu-pv-support.patch
-    git apply -v $srcdir/0002-Fix-eventfd_signal.patch
+    # git apply -v $srcdir/0002-Fix-eventfd_signal.patch
 
     commit_version=$(git rev-parse --short HEAD)
     msg "Git commit version: $commit_version"
