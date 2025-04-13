@@ -7,13 +7,24 @@
 
 ### 安装方法
 
+
+前往：https://github.com/notify-bibi/dxgkrnl-dkms-git
+
+
+
 手动克隆并构建：
 ```bash
 git clone https://github.com/ssxwcz/dxgkrnl-dkms.git
 cd dxgkrnl-dkms
 makepkg -si
+
+
+test_gpu.sh
+但是搞笑的是d3d12 & 7900xtxt 才500+fps. llvmpipe 1100 fps
+
 ```
 
 ### 参考
 
 -  [staralt/dxgkrnl-dkms](https://github.com/staralt/dxgkrnl-dkms)。
+-  [ssxwcz/dxgkrnl-dkms-git](https://github.com/ssxwcz/dxgkrnl-dkms-git) 致谢！

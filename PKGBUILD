@@ -10,7 +10,7 @@ depends=('dkms')
 makedepends=('git' 'linux-headers')
 provides=("dxgkrnl")
 source=('0001-Add-a-gpu-pv-support.patch')
-sha256sums=('9994e8b021341f7805f5e51a38cd065abaff8f106bceefc3138bd859be48865b' '44c24dbbea7833689cae5395e6f991124826e547172c8a41c177018687063252' )
+sha256sums=('9994e8b021341f7805f5e51a38cd065abaff8f106bceefc3138bd859be48865b')
 
 prepare() {
 
